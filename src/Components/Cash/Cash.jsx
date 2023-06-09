@@ -31,7 +31,7 @@ async  function handleCash(values)
     if(response?.data?.status=="success")
     {
         toast.success("You have paid by cash")
-        navigateTo('/orders')
+        navigateTo('/allorders')
         setCartNum(0)
         
     }

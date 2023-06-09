@@ -3,9 +3,12 @@ import React, { useContext, useState } from 'react'
 import * as Yup from "yup"
 import { CartContext } from '../Context/CartContext'
  import { Helmet } from 'react-helmet'
+import { useNavigate } from 'react-router-dom'
 
 export default function Checkout({logout}) {
     
+let navigateTo=useNavigate()
+
 let {CheckoutOnline,cartID}=useContext(CartContext)
 let [Loading,setLoading]=useState(false)   
 
@@ -26,6 +29,8 @@ async  function handleCheckOut(values)
     {
         console.log("done")
         window.location.href=response.data.session.url
+        navigateTo('/allorders')
+
     }
 
 }
